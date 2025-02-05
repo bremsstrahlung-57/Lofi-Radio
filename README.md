@@ -35,6 +35,8 @@ and it will be served at `http://localhost:8080`.
  - Scanline : `https://dev.to/ekeijl/retro-crt-terminal-screen-in-css-js-4afh`
 
 
-Thank you 
+Thank you
+
 Have a great day 
+
 ^-^
