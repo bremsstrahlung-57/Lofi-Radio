@@ -12,19 +12,18 @@
 
 body {
   margin: 0 auto;
-  /* max-width: 650px; */
+  max-width: 100vw;
   line-height: 1.6;
   font-size: 18px;
   padding: 2rem;
   text-align: center;
-  background-image: url("/lofi-radio/assets/img/Minecraft_Aesthetic_Photo.gif");
+  background-image: url("https://i.pinimg.com/originals/43/1c/e5/431ce5d15aab86f66a91ec9a07c9114f.gif");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   height: 100vh;
   margin: 0;
   backdrop-filter: blur(1px) brightness(0.7);
-  transition: background-image 0.7s ease-in-out;
 }
 
 
@@ -36,14 +35,6 @@ h3 {
 
 .logo {
   height: 6em;
-}
-
-.button {
-  cursor: pointer;
-  border: 2px black;
-}
-.button:hover{
-  border: 10px solid black;
 }
 
 .crt::before {
