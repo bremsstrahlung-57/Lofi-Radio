@@ -22,24 +22,13 @@ function onYouTubePlayerAPIReady() {
     });
 }
 
-var current = 1;
-function onPlayerReady() {
-    document.getElementById("play").addEventListener("click", () => {
-        player.playVideo();
-        current = 1;
-    });
-    document.getElementById("pause").addEventListener("click", () => {
-        player.pauseVideo();
-        current = 0;
-    });
-}
 
 var background = [
-  "https://i.pinimg.com/originals/ba/6d/5f/ba6d5f62d7bb1263a97b56631bd29e28.gif",
-  "https://i.pinimg.com/originals/4f/f0/88/4ff088795aff41e835671f1479fa0366.gif",
-  "https://i.pinimg.com/originals/86/c1/d9/86c1d9ace129663aa292a68fb889e80c.gif",
-  "https://i.pinimg.com/originals/43/1c/e5/431ce5d15aab86f66a91ec9a07c9114f.gif",
-  "https://i.pinimg.com/originals/13/7e/45/137e45c33cb5939abcd3ff4d8f858c63.gif",
+    "https://i.pinimg.com/originals/ba/6d/5f/ba6d5f62d7bb1263a97b56631bd29e28.gif",
+    "https://i.pinimg.com/originals/4f/f0/88/4ff088795aff41e835671f1479fa0366.gif",
+    "https://i.pinimg.com/originals/86/c1/d9/86c1d9ace129663aa292a68fb889e80c.gif",
+    "https://i.pinimg.com/originals/43/1c/e5/431ce5d15aab86f66a91ec9a07c9114f.gif",
+    "https://i.pinimg.com/originals/13/7e/45/137e45c33cb5939abcd3ff4d8f858c63.gif",
   "https://i.pinimg.com/originals/6d/78/71/6d78711d7c8438405ee8a5a50114f9ac.gif",
   "https://i.pinimg.com/originals/1c/4a/45/1c4a4596912277e7b3b209f1ccf49927.gif",
   "https://i.pinimg.com/originals/bf/fe/eb/bffeeb6e56305a13708c87d3df45a178.gif",
@@ -59,20 +48,41 @@ var background = [
 ];
 
 const videoIds = [
-  "-DfHaOYeaqk",
-  "xUW9wVKNjQA",
-  "x0OLPEjna8A",
-  "jfKfPfyJRdk",
-  "ANkxRGvl1VY",
-  "BH-SnQ8J1VU",
-  "zhDwjnYZiCo",
-  "F02iMCEEQWs",
-  "kvn8N8HTqGE",
-  "or2SriWNolI",
-  "txvYcUGUzaQ",
-  "NunueetXpZI"
+    "-DfHaOYeaqk",
+    "xUW9wVKNjQA",
+    "x0OLPEjna8A",
+    "jfKfPfyJRdk",
+    "ANkxRGvl1VY",
+    "BH-SnQ8J1VU",
+    "zhDwjnYZiCo",
+    "F02iMCEEQWs",
+    "kvn8N8HTqGE",
+    "or2SriWNolI",
+    "txvYcUGUzaQ",
+    "NunueetXpZI"
 ];
 let currentVideoIndex = 0;
+var current = 1;
+
+function onPlayerReady() {
+    document.getElementById("play").addEventListener("click", () => {
+        player.playVideo();
+        current = 1;
+    });
+    document.getElementById("next").addEventListener("click", () => {
+        player.playVideo();
+        current = 1;
+    });
+    document.getElementById("previous").addEventListener("click", () => {
+        player.playVideo();
+        current = 1;
+    });
+    
+    document.getElementById("pause").addEventListener("click", () => {
+        player.pauseVideo();
+        current = 0;
+    });
+}
 
 document.getElementById("next").addEventListener("click", () => {
     currentVideoIndex = (currentVideoIndex + 1) % videoIds.length;
