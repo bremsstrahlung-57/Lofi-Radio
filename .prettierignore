@@ -1,0 +1,11 @@
+# Ignore environment-based files
+.DS_Store
+.vscode
+.env
+.env.*
+!.env.example
+
+# Ignore lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

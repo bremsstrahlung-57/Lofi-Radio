@@ -1,0 +1,12 @@
+{
+  "name": "lofi-radio",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "live-server"
+  },
+  "devDependencies": {
+    "eslint": "^8.36.0",
+    "live-server": "^1.2.2",
+    "prettier": "2.8.5"
+  }
+}

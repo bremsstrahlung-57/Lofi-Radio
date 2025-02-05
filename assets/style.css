@@ -1,0 +1,114 @@
+@import url("https://fonts.cdnfonts.com/css/vcr-osd-mono");
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Pixelify+Sans:wght@400..700&family=Sixtyfour&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
+:root {
+  /* font-family: "VCR OSD Mono", sans-serif; */
+  /* font-family: "Pixelify Sans", serif; */
+  /* font-family: "Doto", serif; */
+  /* font-family: "Sixtyfour", serif; */
+  font-family: "Jersey 10", serif;
+}
+
+body {
+  margin: 0 auto;
+  /* max-width: 650px; */
+  line-height: 1.6;
+  font-size: 18px;
+  padding: 2rem;
+  text-align: center;
+  background-image: url("/lofi-radio/assets/img/Minecraft_Aesthetic_Photo.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100vh;
+  margin: 0;
+  backdrop-filter: blur(1px) brightness(0.7);
+  transition: background-image 0.7s ease-in-out;
+}
+
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+.logo {
+  height: 6em;
+}
+
+.button {
+  cursor: pointer;
+  border: 2px black;
+}
+.button:hover{
+  border: 10px solid black;
+}
+
+.crt::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(65, 110, 69, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06)
+    );
+  z-index: 100;
+  background-size: 100% 4px, 8px 100%;
+  pointer-events: none;
+}
+
+.crt::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(55, 90, 56, 0.1);
+  opacity: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.scanline {
+  width: 100%;
+  height: 100px;
+  z-index: 90;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(143, 141, 141, 0.2) 10%,
+    rgba(0, 0, 0, 0.1) 20%
+  );
+  opacity: 0.6;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  animation: scanline 7s linear infinite;
+}
+
+@keyframes scanline {
+  0% {
+    bottom: 100%;
+  }
+  80% {
+    bottom: 100%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+.glow {
+  text-shadow: 0 0 15px rgb(0, 255, 55);
+}
