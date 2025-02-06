@@ -8,7 +8,7 @@ function onYouTubePlayerAPIReady() {
   player = new YT.Player("ytplayer", {
     height: "360",
     width: "640",
-    videoId: "-DfHaOYeaqk",
+    videoId: "qF5nHgQSH-o",
     frameborder: 0,
     playerVars: {
       autoplay: 1,
@@ -38,6 +38,7 @@ var background = [
   "https://i.pinimg.com/originals/41/60/61/416061b9d95e206d7bbeb51e644cca6e.gif",
   "https://i.pinimg.com/originals/ae/3f/99/ae3f993fd9ad5eb43319642e5e754e23.gif",
   "https://i.pinimg.com/originals/6e/85/f7/6e85f7e0111ac569249afb790efff78f.gif",
+  "https://i.pinimg.com/originals/5f/f4/58/5ff45883d083027e28142ce6fc48659d.gif",
   "https://i.pinimg.com/originals/58/78/9f/58789f8e2d65c06f1218141cc8cd1db1.gif",
   "https://i.pinimg.com/originals/c6/33/c2/c633c20ede82f0e0ced7d570dbe3a1f3.gif",
   "https://i.pinimg.com/originals/40/01/14/400114aa763dcdff9aad8cf0d7194ba7.gif",
@@ -49,26 +50,33 @@ var background = [
   "https://i.pinimg.com/originals/df/6b/e2/df6be2153e2b2a255e7e707da5e4c02c.gif",
   "https://i.pinimg.com/originals/28/c8/56/28c856331b4ae6ce0f27dfb5671ba71e.gif",
   "https://i.pinimg.com/originals/b0/a5/40/b0a5403e757bd83e02131c4d2e82c351.gif",
+  "https://i.pinimg.com/originals/ff/7d/eb/ff7deb7e7e4b8a42e7aff7c592e35b8b.gif",
+  "https://i.pinimg.com/originals/c0/cd/4c/c0cd4c0e4d5c280e34571db01b2dcfde.gif",
 ];
 
 const videoIds = [
+  "qF5nHgQSH-o",
+  "hbpph9CrJbs",
   "-DfHaOYeaqk",
   "xUW9wVKNjQA",
   "x0OLPEjna8A",
   "jfKfPfyJRdk",
   "ANkxRGvl1VY",
   "BH-SnQ8J1VU",
-  "zhDwjnYZiCo",
+  "4xDzrJKXOOY",
   "F02iMCEEQWs",
   "kvn8N8HTqGE",
   "or2SriWNolI",
   "txvYcUGUzaQ",
+  "TlWYgGyNnJo",
   "NunueetXpZI",
+  "Ru8DQ5f5A6U",
+  "_5jELltfi9U",
+  "lySUrbGamhU",
+  "NJuSStkIZBg",
 ];
 let currentVideoIndex = 0;
 var current = 1;
-
-window.onload = onPlayerReady();
 
 function onPlayerReady() {
   player.playVideo();
