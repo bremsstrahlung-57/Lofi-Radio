@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Jersey+10&display=swap");
 
 :root {
   font-family: "Jersey 10", serif;
@@ -93,4 +93,27 @@ h3 {
 
 .glow {
   text-shadow: 0 0 15px rgb(0, 255, 55);
+}
+
+.slider {
+  appearance: none;
+  outline: none;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  border-radius: 2px;
+  border: 2px solid rgb(0, 255, 55);
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 15px;
+  background: rgb(15, 202, 56);
+  cursor: pointer;
+}
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 15px;
+  background: rgb(15, 202, 56);
+  cursor: pointer;
 }

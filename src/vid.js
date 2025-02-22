@@ -146,3 +146,7 @@ function toggleFullScreen() {
 document.getElementById("full_screen").addEventListener("click", () => {
   toggleFullScreen();
 });
+
+document.getElementById("myRange").addEventListener("change", () => {
+  player.setVolume(document.getElementById("myRange").value);
+})

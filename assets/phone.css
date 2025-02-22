@@ -1,6 +1,8 @@
 @media only screen and (max-width: 768px) {
   #info {
-    position: relative;
+    position: fixed;
     margin: 10px;
+    top: 90%;
+    left: calc(20%);
   }
 }
