@@ -7,6 +7,10 @@
   "devDependencies": {
     "eslint": "^8.36.0",
     "live-server": "^1.2.2",
-    "prettier": "2.8.5"
+    "prettier": "2.8.5",
+    "react-router-dom": "^7.2.0"
+  },
+  "dependencies": {
+    "@types/react-router-dom": "^5.3.3"
   }
 }

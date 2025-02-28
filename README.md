@@ -1,7 +1,7 @@
 # Lo-fi Radio 
 A simple Lo-fi music player built with vanilla JavaScript. The app uses the [Lo-fi Radio API](https://lofi-radio-man.vercel.app/) to stream relaxing beats while you work, study, or unwind.
 
-I used youtube iframe api and made it's display none ^_^
+I used youtube iframe api.
 
 
 # Vanilla JavaScript project
@@ -31,7 +31,7 @@ npm run dev
 and it will be served at `http://localhost:8080`.
 
 ### Credits
- - The CRT effect : `https://onesemester.tech` Made by: [Quantinium](https://x.com/quantinium_dev)
+ - The CRT effect : `https://github.com/namishh/onesemester`
  - Scanline : `https://dev.to/ekeijl/retro-crt-terminal-screen-in-css-js-4afh`
 
 
@@ -39,4 +39,4 @@ Thank you
 
 Have a great day 
 
-^-^
+^_^
