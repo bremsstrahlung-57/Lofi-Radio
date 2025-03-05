@@ -3,6 +3,6 @@
     position: fixed;
     margin: 10px;
     top: 90%;
-    left: calc(20%);
+    left: calc(47% - 100px);
   }
 }

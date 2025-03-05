@@ -100,20 +100,23 @@ h3 {
   outline: none;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
-  border-radius: 2px;
+  border-radius: 1px;
+  height: 3px;
   border: 2px solid rgb(0, 255, 55);
 }
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 20px;
-  height: 15px;
+  height: 20px;
   background: rgb(15, 202, 56);
   cursor: pointer;
+  border-radius: 100%;
 }
 .slider::-moz-range-thumb {
   width: 20px;
-  height: 15px;
+  height: 20px;
   background: rgb(15, 202, 56);
   cursor: pointer;
+  border-radius: 100%;
 }
