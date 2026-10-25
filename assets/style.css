@@ -2,40 +2,153 @@
 
 :root {
   font-family: "Jersey 10", serif;
+  color: #39db59;
+  color-scheme: dark;
+  --accent: #39db59;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
 }
 
 body {
-  margin: 0 auto;
-  max-width: 100vw;
-  padding: 2rem;
-  text-align: center;
-  background-image: url("./img/images/car.gif");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  height: 100vh;
   margin: 0;
+  padding: 2rem;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  text-align: center;
+  background: #0b1019 url("./img/images/car.gif") center / cover no-repeat;
+}
+
+/* Keep the original dim, slightly blurred scene behind the transparent controls. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
   backdrop-filter: blur(1px) brightness(0.7);
+  pointer-events: none;
+  z-index: -1;
 }
 
-h1,
-h2,
-h3 {
-  line-height: 1.2;
+button,
+#info a {
+  border: 2px solid var(--accent);
+  border-radius: 1px;
+  padding: 0 16px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.logo {
-  height: 6em;
+button:hover:not(:disabled),
+#info a:hover {
+  background: rgb(57 219 89 / 12%);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+#func_button {
+  position: relative;
+  margin: 0 auto;
+  width: fit-content;
+  max-width: 100%;
+}
+
+#header,
+#static {
+  font-size: 36px;
+  line-height: 40px;
+}
+
+#static {
+  margin: 0;
+}
+
+.transport {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 8px;
+  padding: 8px;
+  font-size: 30px;
+  line-height: 36px;
+}
+
+#full_screen {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.volume {
+  margin-top: 32px;
+  opacity: 0.5;
+}
+
+.volume:hover,
+.volume:focus-within {
+  opacity: 0.8;
+}
+
+.slider {
+  appearance: none;
+  border-radius: 1px;
+  height: 7px;
+  width: 130px;
+  border: 2px solid rgb(0, 255, 55);
+  background: transparent;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background: rgb(15, 202, 56);
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  border-radius: 100%;
+  background: rgb(15, 202, 56);
+}
+
+#info {
+  position: absolute;
+  top: 32px;
+  right: 48px;
+  display: flex;
+  gap: 16px;
+  font-size: 21px;
+  line-height: 30px;
+}
+
+.glow {
+  text-shadow: 0 0 15px rgb(0, 255, 55);
 }
 
 .crt::before {
-  content: " ";
-  display: block;
+  content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  inset: 0;
+  z-index: 100;
   background: linear-gradient(rgba(65, 110, 69, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
     linear-gradient(
       90deg,
@@ -43,80 +156,276 @@ h3 {
       rgba(0, 255, 0, 0.02),
       rgba(0, 0, 255, 0.06)
     );
-  z-index: 100;
   background-size: 100% 4px, 8px 100%;
   pointer-events: none;
 }
 
-.crt::after {
-  content: " ";
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(55, 90, 56, 0.1);
-  opacity: 0;
-  z-index: 100;
-  pointer-events: none;
-}
-
 .scanline {
+  position: fixed;
+  top: -100px;
+  left: 0;
   width: 100%;
   height: 100px;
   z-index: 90;
+  pointer-events: none;
+  opacity: 0.6;
   background: linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0) 0%,
+    transparent 0%,
     rgba(143, 141, 141, 0.2) 10%,
     rgba(0, 0, 0, 0.1) 20%
   );
-  opacity: 0.6;
-  position: absolute;
-  bottom: 100%;
-  left: 0;
   animation: scanline 7s linear infinite;
 }
 
 @keyframes scanline {
-  0% {
-    bottom: 100%;
-  }
+  0%,
   80% {
-    bottom: 100%;
+    transform: translateY(0);
   }
   100% {
-    bottom: 0;
+    transform: translateY(calc(100vh + 100px));
   }
 }
 
-.glow {
-  text-shadow: 0 0 15px rgb(0, 255, 55);
+.drawer-toggle {
+  position: fixed;
+  z-index: 20;
+  background: rgb(5 13 11 / 85%);
+  font-size: 22px;
+  min-height: 44px;
 }
 
-.slider {
-  appearance: none;
-  outline: none;
-  -webkit-transition: 0.2s;
-  transition: opacity 0.2s;
-  border-radius: 1px;
-  height: 3px;
-  border: 2px solid rgb(0, 255, 55);
+.songs-toggle {
+  left: 0;
+  top: 45%;
+  border-left: 0;
 }
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  background: rgb(15, 202, 56);
-  cursor: pointer;
-  border-radius: 100%;
+
+.backgrounds-toggle {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 0;
+  white-space: nowrap;
 }
-.slider::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
-  background: rgb(15, 202, 56);
-  cursor: pointer;
-  border-radius: 100%;
+
+.drawer {
+  position: fixed;
+  z-index: 30;
+  background: rgb(4 12 10 / 96%);
+  border: 1px solid rgb(57 219 89 / 50%);
+  text-align: left;
+}
+
+.drawer-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+}
+
+.drawer-heading h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.drawer-heading > button {
+  margin-left: auto;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  font-size: 28px;
+}
+
+.drawer-note {
+  margin: 0;
+  padding: 0 16px 16px;
+  color: #9db9a2;
+  font-size: 18px;
+}
+
+.songs-panel {
+  inset: 0 auto 0 0;
+  width: min(340px, 90vw);
+  display: flex;
+  flex-direction: column;
+  animation: songs-in 180ms ease-out;
+}
+
+.song-list {
+  overflow-y: auto;
+  min-height: 0;
+  padding: 0 12px 16px;
+  overscroll-behavior: contain;
+  scrollbar-color: #39db59 #08130e;
+}
+
+.song-card {
+  display: grid;
+  grid-template-columns: 108px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid transparent;
+  text-align: left;
+  font-size: 19px;
+  line-height: 1.2;
+}
+
+.song-card img {
+  width: 108px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #122119;
+}
+
+.song-card span {
+  overflow-wrap: anywhere;
+}
+
+.song-card[aria-pressed="true"],
+.background-card[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: rgb(57 219 89 / 12%);
+}
+
+.backgrounds-panel {
+  inset: auto 0 0;
+  animation: backgrounds-in 180ms ease-out;
+}
+
+.random-option {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+}
+
+.random-option input {
+  accent-color: var(--accent);
+  width: 18px;
+  height: 18px;
+}
+
+.backgrounds-panel .drawer-heading > button {
+  margin-left: 0;
+}
+
+.background-carousel {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 36px;
+  gap: 12px;
+  padding: 0 16px 12px;
+}
+
+.background-carousel > button {
+  padding: 0;
+  font-size: 30px;
+}
+
+.background-list {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 4px 4px 12px;
+  overscroll-behavior: contain;
+  scrollbar-color: #39db59 #08130e;
+  touch-action: pan-x;
+  cursor: grab;
+}
+
+.background-list.dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.background-card {
+  flex: 0 0 180px;
+  padding: 5px;
+  border: 1px solid #284631;
+  text-align: left;
+  font-size: 17px;
+}
+
+.background-card img {
+  display: block;
+  width: 100%;
+  height: 96px;
+  object-fit: cover;
+  margin-bottom: 6px;
+  background: #122119;
+  pointer-events: none;
+}
+
+.background-card span {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-window {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  left: -220px;
+  top: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ui-toggle {
+  position: fixed;
+  z-index: 20;
+  top: 12px;
+  left: 12px;
+  min-height: 36px;
+}
+
+body.ui-hidden > main,
+body.ui-hidden > .drawer-toggle,
+body.ui-hidden > .drawer {
+  visibility: hidden;
+}
+
+@keyframes songs-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes backgrounds-in {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scanline {
+    display: none;
+  }
+  .drawer {
+    animation: none;
+  }
 }

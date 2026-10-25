@@ -2,7 +2,9 @@
   "name": "lofi-radio",
   "version": "0.0.0",
   "scripts": {
-    "dev": "live-server"
+    "dev": "live-server",
+        "test": "node --test src/vid.test.cjs",
+        "lint": "eslint src/vid.js src/vid.test.cjs"
   },
   "devDependencies": {
     "eslint": "^8.36.0",

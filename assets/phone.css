@@ -1,8 +1,81 @@
-@media only screen and (max-width: 768px) {
+@media (max-width: 768px) {
+  body {
+    padding: 32px 16px;
+  }
+
+  .transport {
+    gap: 16px;
+    margin: 8px 0;
+    padding: 8px 0;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .transport button {
+    padding: 0 14px;
+  }
+
+  #full_screen {
+    font-size: 14px;
+  }
+
   #info {
     position: fixed;
-    margin: 10px;
-    top: 90%;
-    left: calc(47% - 100px);
+    top: auto;
+    bottom: 72px;
+    right: 0;
+    left: 0;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .drawer-heading {
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .backgrounds-panel .drawer-heading {
+    flex-wrap: wrap;
+  }
+
+  .random-option {
+    order: 3;
+    width: 100%;
+    margin: 0;
+    min-height: 32px;
+  }
+
+  .backgrounds-panel .drawer-heading > button {
+    margin-left: auto;
+  }
+
+  .background-carousel {
+    grid-template-columns: 28px minmax(0, 1fr) 28px;
+    gap: 8px;
+    padding: 0 8px 8px;
+  }
+
+  .background-card {
+    flex-basis: 150px;
+  }
+
+  .background-card img {
+    height: 80px;
+  }
+
+  .backgrounds-panel {
+    max-height: 70svh;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 360px) {
+  .transport {
+    gap: 8px;
+  }
+
+  .transport button {
+    padding: 0 10px;
   }
 }

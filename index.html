@@ -2,88 +2,73 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8</head>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-title" content="LofiRadio" />
-    <link rel="icon" type="image/png" href="assets/img/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
-    <link rel="shortcut icon" href="assets/img/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
-    <link rel="manifest" href="/img/site.webmanifest" />
+    <meta name="apple-mobile-web-app-title" content="LofiRadio">
+    <link rel="icon" type="image/png" href="assets/img/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <link rel="shortcut icon" href="assets/img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+    <link rel="manifest" href="assets/img/site.webmanifest">
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/phone.css">
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-
+    <script src="src/vid.js" defer></script>
     <title>Lofi Radio</title>
 </head>
 
 <body>
-    <div class="scanline pointer-events-none "></div>
-    <div class="crt glow w-full h-full">
-        <div id="ytplayer" class="player-window hidden">
-        </div>
-        <div class="flex justify-center items-center flex-col relative bottom-0">
-            <div id="func_button">
+    <div class="scanline" aria-hidden="true"></div>
+    <div class="crt" aria-hidden="true"></div>
+    <main>
+        <h1 class="sr-only">Lofi Radio</h1>
+        <section id="func_button" class="glow" aria-label="Radio controls">
+            <div id="header" aria-hidden="true">^_^</div>
+            <p id="static" role="status">♪</p>
+            <div class="transport" role="group" aria-label="Playback">
+                <button id="previous" type="button" disabled>previous</button>
+                <button id="play" type="button" disabled>play</button>
+                <button id="pause" type="button" disabled>pause</button>
+                <button id="next" type="button" disabled>next</button>
+            </div>
+            <button id="full_screen" type="button">full_screen</button>
+            <div class="volume">
+                <label class="sr-only" for="myRange">Volume</label>
+                <input type="range" min="0" max="100" value="100" class="slider" id="myRange" disabled>
+            </div>
+            <noscript>Enable JavaScript to use the radio.</noscript>
+        </section>
+        <nav id="info" class="glow" aria-label="Social links">
+            <a href="https://github.com/bremsstrahlung-57/Lofi-Radio" target="_blank" rel="noopener noreferrer">github</a>
+            <a href="https://x.com/barbarik____" target="_blank" rel="noopener noreferrer">twitter/x</a>
+        </nav>
+        <div class="player-window"><div id="ytplayer"></div></div>
+    </main>
 
-                <div id="header" class="text-[#39db59] text-4xl">^_^</div>
-                <div id="static" class="text-[#39db59] text-4xl">♪</div>
-                <div class="flex justify-center items-center m-2 p-2 text-3xl">
-                    <button id="previous"
-                        class=" mr-2 ml-2 cursor-pointer text-[#39db59] pl-4 pr-4 border-2 rounded-[1px] max-md:text-[16px]">
-                        <a class="glow">
-                            previous
-                        </a>
-                        <!-- <img src="./assets/skip_previous_24dp_39DB59_FILL1_wght400_GRAD0_opsz24.svg" alt="previous"> -->
-                    </button>
-                    <button id="play"
-                        class="  mr-2 ml-2 cursor-pointer text-[#39db59] pl-4 pr-4 border-2 rounded-[1px] max-md:text-[16px]">
-                        <a class="glow">
-                            play
-                        </a>
-                        <!-- <img src="./assets/play_arrow_24dp_39DB59_FILL1_wght400_GRAD0_opsz24.svg" alt="play"> -->
-                    </button>
-                    <button id="pause"
-                        class=" mr-2 ml-2 cursor-pointer text-[#39db59] pl-4 pr-4  border-2 rounded-[1px] max-md:text-[16px]">
-                        <a class="glow">
-                            pause
-                        </a>
-                        <!-- <img src="./assets/pause_24dp_39DB59_FILL1_wght400_GRAD0_opsz24.svg" alt="pause"> -->
-                    </button>
-                    <button id="next"
-                        class=" mr-2 ml-2 cursor-pointer text-[#39db59] pl-4 pr-4  border-2 rounded-[1px] max-md:text-[16px]">
-                        <a class="glow">
-                            next
-                        </a>
-                        <!-- <img src="./assets/skip_next_24dp_39DB59_FILL1_wght400_GRAD0_opsz24.svg" alt="next"> -->
-                    </button>
-                </div>
-                <div class="flex justify-center items-center flex-col">
-                    <button id="full_screen"
-                        class="mr-2 ml-2 cursor-pointer text-[#39db59] pl-4 pr-4 border-2 rounded-[1px] max-md:text-[14px]">
-                    <a class="glow">
-                        full_screen
-                        </a>
-                    </button>
-                    <div class="mt-8 opacity-50 hover:opacity-80">
-                        <input type="range" min="1" max="100" value="100" class="slider" id="myRange">
-                    </div>
-                </div>
-            </div>
-            <div id="info" class="w-60 right-0 top-0 absolute text-[1.3rem]">
-                <button class="mr-2 ml-2 cursor-pointer text-[#39db59] pl-4 pr-4 border-2 rounded-[1px] max-md:text-[14px]">
-                    <a class="glow" href="https://github.com/bremsstrahlung-57/Lofi-Radio" target="_blank">github
-                    </a>
-                </button>
-                <button class="mr-2 ml-2 cursor-pointer text-[#39db59] pl-4 pr-4 border-2 rounded-[1px] max-md:text-[14px]">
-                    <a class="glow" href="https://x.com/barbarik____" target="_blank">twitter/x
-                    </a>
-                </button>
-            </div>
+    <button id="ui-toggle" class="ui-toggle glow" type="button" aria-pressed="false">hide ui</button>
+    <button id="songs-toggle" class="drawer-toggle songs-toggle glow" type="button" aria-controls="songs-panel" aria-expanded="false">songs ›</button>
+    <aside id="songs-panel" class="songs-panel drawer" aria-labelledby="songs-heading" hidden>
+        <div class="drawer-heading">
+            <h2 id="songs-heading">songs</h2>
+            <button id="songs-close" type="button" aria-label="Close songs">×</button>
         </div>
-    </div>
+        <p id="song-help" class="drawer-note" role="status">Choose a mix. Scroll to explore.</p>
+        <div id="song-list" class="song-list" role="group" aria-label="Choose a song" tabindex="0"></div>
+    </aside>
+
+    <button id="backgrounds-toggle" class="drawer-toggle backgrounds-toggle glow" type="button" aria-controls="backgrounds-panel" aria-expanded="false">backgrounds ↑</button>
+    <section id="backgrounds-panel" class="backgrounds-panel drawer" aria-labelledby="backgrounds-heading" hidden>
+        <div class="drawer-heading">
+            <h2 id="backgrounds-heading">backgrounds</h2>
+            <label class="random-option"><input id="random-background" type="checkbox" checked> random on song change</label>
+            <button id="backgrounds-close" type="button" aria-label="Close backgrounds">×</button>
+        </div>
+        <div class="background-carousel">
+            <button id="backgrounds-previous" type="button" aria-label="Scroll backgrounds left">‹</button>
+            <div id="background-list" class="background-list" role="group" aria-label="Choose a background" tabindex="0"></div>
+            <button id="backgrounds-next" type="button" aria-label="Scroll backgrounds right">›</button>
+        </div>
+        <p class="drawer-note">Swipe, drag or scroll to explore · click to choose</p>
+    </section>
 </body>
-<script src="src/vid.js"></script>
-<script src="src/background.js"></script>
 
 </html>
